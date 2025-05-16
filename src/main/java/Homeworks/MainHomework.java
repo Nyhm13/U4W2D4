@@ -70,13 +70,16 @@ public class MainHomework {
         // Trova il prezzo massimo
         double prezzoPiuAlto = products.stream().collect(Collectors.summarizingDouble(Product::getPrice)).getMax();
         System.out.println("ESERCIZIO 3" + "Costo piu alto = " + prezzoPiuAlto);
+        // SOLUZIONE PROFF
+        products.stream().filter(product -> product.getPrice()==products.stream().mapToDouble())
 
         // Esercizio #4
         /*Esercizio #4
         Dato un elenco di ordini, calcola la media degli importi degli ordini utilizzando Stream e Lambda Expressions
          */
-        OptionalDouble mediaPrezzi = orders.stream().mapToDouble(order -> order.getProducts()
-                .stream().mapToDouble(product -> product.getPrice()).sum()).average();
+        //.getasDouble() permette di ottenere un valore di tipo Double
+        Double mediaPrezzi = orders.stream().mapToDouble(order -> order.getProducts()
+                .stream().mapToDouble(product -> product.getPrice()).sum()).average().getAsDouble();
 
         System.out.println("ESERCIZIO 4" + "Media Prezzi = " + mediaPrezzi);
         // Esercizio #5
@@ -88,5 +91,10 @@ public class MainHomework {
 
         System.out.println("Sono esercizio 5 "+sommaPerCategoria);
     }
+    //Esercizio #6
 
+    public static void salvaProdottiSuDisco (List<Product> prodotti){
+        String prodottiStringati= "";
+
+    }
 }
